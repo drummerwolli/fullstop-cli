@@ -302,7 +302,7 @@ def resolve_violations(config, comment, since, region, meta, limit, violation_id
         with Action('Resolving violation {}/{} {} {}..'.format(row['account_id'], row['region'],
                     row['violation_type']['id'], row['id'])):
             r = session.post(url + '/api/violations/{}/resolution'.format(row['id']), data=comment,
-                             headers={'Authorization': 'Bearer {}'.format(token), "Content-Type": "text/plain"})
+                             headers={'Authorization': 'Bearer {}'.format(token)})
             r.raise_for_status()
 
 
